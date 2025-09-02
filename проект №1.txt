@@ -1,0 +1,22 @@
+﻿1
+5
+(1, 1)
+Happy
+Hello
+(10, 12)
+12
+(1, 12)
+Travel
+21
+<class 'int'>
+<class 'int'>
+<class 'tuple'>
+<class 'str'>
+<class 'str'>
+<class 'tuple'>
+<class 'int'>
+<class 'tuple'>
+<class 'str'>
+<class 'int'>
+The thread 'MainThread' (1) has exited with code 0 (0x0).
+The program 'python.exe' has exited with code 4294967295 (0xffffffff).
