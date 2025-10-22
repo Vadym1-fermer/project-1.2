@@ -30,10 +30,6 @@ def main():
     avg = sum(students.values()) / len(students)
 
     # Підрахунок категорій
-    excellent = {n: g for n, g in students.items() if 10 <= g <= 12}
-    good = {n: g for n, g in students.items() if 7 <= g <= 9}
-    weak = {n: g for n, g in students.items() if 4 <= g <= 6}
-    failed = {n: g for n, g in students.items() if 1 <= g <= 3}
 
     excellent = {}
 good = {}
