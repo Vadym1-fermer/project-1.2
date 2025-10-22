@@ -35,12 +35,20 @@ def main():
     weak = {n: g for n, g in students.items() if 4 <= g <= 6}
     failed = {n: g for n, g in students.items() if 1 <= g <= 3}
 
-    print("\n📊 Статистика:")
-    print(f"Середній бал по групі: {avg:.2f}")
-    print(f"Відмінники (10–12): {len(excellent)} → {', '.join(excellent.keys()) if excellent else 'немає'}")
-    print(f"Хорошисти (7–9): {len(good)}")
-    print(f"Відстаючі (4–6): {len(weak)}")
-    print(f"Не здали (1–3): {len(failed)}")
+    excellent = {}
+good = {}
+weak = {}
+failed = {}
+
+for name, grade in students.items():
+    if 10 <= grade <= 12:
+        excellent[name] = grade
+    elif 7 <= grade <= 9:
+        good[name] = grade
+    elif 4 <= grade <= 6:
+        weak[name] = grade
+    elif 1 <= grade <= 3:
+        failed[name] = grade
 
 if __name__ == "__main__":
     main()
