@@ -1,15 +1,20 @@
+from decorator import timer_decorator
 import time
 
+@timer_decorator
+def slow_function():
+    print("Функція працює...")
+    time.sleep(1.5)
+    return "Готово!"
 
-def timer_decorator(func):
-    def wrapper(*args, **kwargs):
-        print(f"Викликається функція: {func.__name__}")
-        start = time.time()
+@timer_decorator
+def sum_numbers(a, b):
+    return a + b
 
-        result = func(*args, **kwargs)
 
-        end = time.time()
-        print(f"Час виконання: {end - start:.5f} секунд")
-        return result
+# Виклики функцій
+result1 = slow_function()
+print(result1)
 
-    return wrapper
+result2 = sum_numbers(5, 7)
+print("Результат суми:", result2)
