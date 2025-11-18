@@ -1,12 +1,14 @@
 def format_price(price):
     return "ціна: " + str(round(price, 2)) + " грн"
 
+
 def available_items(**items):
     return items
 
+
 def make_order(available, prices):
     order = input("Введіть товари через кому: ").split(",")
-    # прибираємо зайві пробіли без strip()
+
     cleaned_order = []
     for x in order:
         while x.startswith(" "):
@@ -15,7 +17,6 @@ def make_order(available, prices):
             x = x[:-1]
         cleaned_order.append(x)
 
-    # перевірка наявності без all() і get()
     all_available = True
     for item in cleaned_order:
         if item not in available or available[item] != True:
@@ -29,6 +30,7 @@ def make_order(available, prices):
         print("✅ Усі товари є. Загальна " + format_price(total))
     else:
         print("❌ Деякі товари відсутні!")
+
 
 def run_menu(prices, available):
     while True:
