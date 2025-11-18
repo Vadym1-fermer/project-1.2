@@ -1,0 +1,10 @@
+requests
+numpy
+pandas
+matplotlib
+Pillow
+beautifulsoup4
+lxml
+pyyaml
+tqdm
+python-dateutil
