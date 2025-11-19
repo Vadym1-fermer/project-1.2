@@ -2,10 +2,6 @@ def format_price(price):
     return "ціна: " + str(round(price, 2)) + " грн"
 
 
-def available_items(**items):
-    return items
-
-
 def make_order(available, prices):
     order = input("Введіть товари через кому: ").split(",")
 
