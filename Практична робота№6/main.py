@@ -1,18 +1,24 @@
-from error_decorator import error_handler
+# main.py
 
-@error_handler(error_code=1001)
+from decorator import error_to_code
+
+@error_to_code
 def divide(a, b):
     return a / b
 
-@error_handler(error_code=2002)
-def get_item(lst, index):
+@error_to_code
+def get_list_element(lst, index):
     return lst[index]
 
+@error_to_code
+def convert_to_int(value):
+    return int(value)
 
-result1 = divide(10, 0)
-result2 = get_item([1, 2, 3], 5)
-result3 = divide(10, 2)
+# Перевірка роботи
+print(divide(10, 2))        # Все добре
+print(divide(10, 0))        # ZeroDivisionError
 
-print(result1)
-print(result2)
-print(result3)
+print(get_list_element([1, 2, 3], 1))    # Все добре
+print(get_list_element([1, 2, 3], 10))   # IndexError -> ERR999
+
+print(convert_to_int("text"))  # ValueError -> ERR001
