@@ -33,8 +33,7 @@ def make_order(available, prices):
         print("❌ Деякі товари відсутні!")
 
 
-if __name__ == "__main__":
-
+def main():
     prices = {"хліб": 25.5, "молоко": 42.0, "цукор": 38.75, "кава": 130.0, "яйця": 55.3}
     available = available_items(хліб=True, молоко=True, цукор=False, кава=True, яйця=True)
 
@@ -51,3 +50,7 @@ if __name__ == "__main__":
             break
         else:
             print("Невірний вибір.")
+
+
+if __name__ == "__main__":
+    main()
