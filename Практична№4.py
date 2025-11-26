@@ -1,8 +1,10 @@
 def format_price(price):
     return "ціна: " + str(round(price, 2)) + " грн"
 
+
 def available_items(**items):
     return items
+
 
 def make_order(available, prices):
     order = input("Введіть товари через кому: ").split(",")
@@ -30,19 +32,22 @@ def make_order(available, prices):
     else:
         print("❌ Деякі товари відсутні!")
 
-prices = {"хліб": 25.5, "молоко": 42.0, "цукор": 38.75, "кава": 130.0, "яйця": 55.3}
-available = available_items(хліб=True, молоко=True, цукор=False, кава=True, яйця=True)
 
-while True:
-    print("\n1. Ціни\n2. Купити\n3. Вихід")
-    c = input("Ваш вибір: ")
+if __name__ == "__main__":
 
-    if c == "1":
-        for k in prices:
-            print(k + ": " + format_price(prices[k]))
-    elif c == "2":
-        make_order(available, prices)
-    elif c == "3":
-        break
-    else:
-        print("Невірний вибір.")
+    prices = {"хліб": 25.5, "молоко": 42.0, "цукор": 38.75, "кава": 130.0, "яйця": 55.3}
+    available = available_items(хліб=True, молоко=True, цукор=False, кава=True, яйця=True)
+
+    while True:
+        print("\n1. Ціни\n2. Купити\n3. Вихід")
+        c = input("Ваш вибір: ")
+
+        if c == "1":
+            for k in prices:
+                print(k + ": " + format_price(prices[k]))
+        elif c == "2":
+            make_order(available, prices)
+        elif c == "3":
+            break
+        else:
+            print("Невірний вибір.")
