@@ -1,30 +1,31 @@
+import asyncio
 import os
 from dotenv import load_dotenv
-from telegram import Update
-from telegram.ext import Application, MessageHandler, filters, ContextTypes
+
+from aiogram import Bot, Dispatcher
+from aiogram.types import Message
+from aiogram.filters import CommandStart
 
 # Завантажуємо змінні з .env
 load_dotenv()
-
 TOKEN = os.getenv("BOT_TOKEN")
 
 
-async def echo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Повторює назад будь-яке текстове повідомлення."""
-    user_text = update.message.text
-    await update.message.reply_text(user_text)
+async def echo_handler(message: Message):
+    """Ехо-бот: відповідає тим самим повідомленням"""
+    await message.answer(message.text)
 
 
-def main():
-    """Створює бота та запускає його."""
-    app = Application.builder().token(TOKEN).build()
+async def main():
+    bot = Bot(token=TOKEN)
+    dp = Dispatcher()
 
     # Обробник усіх текстових повідомлень
-    app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), echo_handler))
+    dp.message.register(echo_handler)
 
     print("Бот запущений...")
-    app.run_polling()
+    await dp.start_polling(bot)
 
 
 if name == "main":
-    main()
+    asyncio.run(main())
